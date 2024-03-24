@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.demo.entity.Employee;
 import com.example.demo.service.EmployeeService;
@@ -27,19 +24,6 @@ public class EmployeeController {
 	
 	@Autowired
 	private EmployeeService empService;
-<<<<<<< HEAD
-=======
-	@GetMapping("/hello")
-	public String hello(){
-		return "hi this is my first app";
-	}
-	@PostMapping("/addEmployee")
-	public Employee addEmployee(@RequestBody Employee emp) 
-	{
-		System.out.println(emp.getFirstName());
-		return empService.saveEmp(emp);
-		
->>>>>>> 1604564c0dee738b97e4e08dd5f5262f419f87d8
 	
 	@PostMapping("/addEmployee")
 	public ResponseEntity<Employee> addEmployee(@RequestBody Employee emp) 
@@ -49,7 +33,7 @@ public class EmployeeController {
 		return new ResponseEntity(saveEmp,HttpStatus.OK);
 		
 	}
-	@GetMapping("/getempById/{id}")
+	@GetMapping("/getemp/{id}")
 	public ResponseEntity<Employee> findById(@PathVariable int id){
 		
 		return new ResponseEntity(empService.findById(id),HttpStatus.OK);
