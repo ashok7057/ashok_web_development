@@ -22,8 +22,8 @@ public class EmployeeService {
 	public Employee findById(int id) {
 		
 		  Optional<Employee> emp=empRepo.findById(id);
-		  Employee emp1=emp.get();
 		  if(emp.isPresent()) { 
+			  Employee emp1=emp.get();
 			  return emp1; } 
 		  else return null;
 	    //return empRepo.findById(id).orElse(null)
